@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/DeviceFactory (snapshot).java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/DeviceFactory (snapshot).java" />
+              <option name="originalContent" value="package problems.smart_home_automation_system;&#10;&#10;public interface DeviceFactory {&#10;    void createDevice();&#10;}&#10;" />
+              <option name="updatedContent" value="package problems.smart_home_automation_system;&#10;&#10;/**&#10; * Abstract Factory for creating different types of Devices (Light, Music, Fan, etc.)&#10; */&#10;public interface DeviceFactory {&#10;    Device createDevice();&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
