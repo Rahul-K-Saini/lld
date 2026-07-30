@@ -1,10 +1,12 @@
 public abstract class AbstractLight extends AbstractDevice implements Light {
   protected int brightness;
   protected static final int DEFAULT_BRIGHTNESS = 100;
+  protected final BrightnessStrategy brightnessStrategy;
 
-  protected AbstractLight() {
+  protected AbstractLight(BrightnessStrategy brightnessStrategy) {
     super();
     this.brightness = DEFAULT_BRIGHTNESS;
+    this.brightnessStrategy = brightnessStrategy;
   }
 
   @Override
@@ -14,6 +16,7 @@ public abstract class AbstractLight extends AbstractDevice implements Light {
     if (brightness < 0 || brightness > 100)
       throw new IllegalStateException("Cannot change brightness device is INVALID");
     this.brightness = brightness;
+    this.brightnessStrategy.adjustBrightness(brightness);
   }
 
   @Override
