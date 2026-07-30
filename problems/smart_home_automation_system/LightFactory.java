@@ -1,5 +1,3 @@
-package problems.smart_home_automation_system;
-
 // this right here is the simple factory not the full factory pattern, 
 // the full factory pattern is the one that has a factory for each type of device, 
 // this is just a simple factory that creates devices based on the type passed in the constructor

@@ -1,5 +1,3 @@
-package problems.smart_home_automation_system;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;

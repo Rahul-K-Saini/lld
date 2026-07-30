@@ -1,5 +1,3 @@
-package problems.smart_home_automation_system;
-
 public class RoomLight extends AbstractLight implements Light {
 
   private final String color;
