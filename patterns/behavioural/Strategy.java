@@ -12,7 +12,7 @@ interface PaymentStrategy {
 }
 
 class UPIPayment implements PaymentStrategy {
-  private String upiId;
+  private final String upiId;
 
   public UPIPayment(String upiId) {
     this.upiId = upiId;
@@ -25,15 +25,11 @@ class UPIPayment implements PaymentStrategy {
 }
 
 class CreditCardPayment implements PaymentStrategy {
-  private String cardNumber;
-  private String cardHolderName;
-  private String cvv;
+  private final String cardNumber;
 
-  public CreditCardPayment(String cardNumber, String cardHolderName, String cvv) {
+    public CreditCardPayment(String cardNumber, String cardHolderName, String cvv) {
     this.cardNumber = cardNumber;
-    this.cardHolderName = cardHolderName;
-    this.cvv = cvv;
-  }
+    }
 
   @Override
   public void pay(int amount) {
@@ -42,7 +38,7 @@ class CreditCardPayment implements PaymentStrategy {
 }
 
 class PaymentContext {
-  private PaymentStrategy paymentStrategy;
+  private final PaymentStrategy paymentStrategy;
 
   public PaymentContext(PaymentStrategy paymentStrategy) {
     this.paymentStrategy = paymentStrategy;

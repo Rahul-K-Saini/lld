@@ -5,12 +5,11 @@ import java.util.Map;
 public class BuilderExample {
   public static void main(String[] args) {
     var http = new HttpRequest.Builder("https://example.com")
-        .setHeaders(Map.of("Content-Type", "application/json"))
-        .setBody("{\"key\": \"value\"}")
-        .setTimeout(5000)
-        .setRetries(-1)
-        .build();
-    System.out.println(http.getUrl());
+            .setHeaders(Map.of("Content-Type", "application/json"))
+            .setBody("{\"key\": \"value\"}")
+            .setTimeout(5000)
+            .setRetries(-1)
+            .build();
   }
 }
 

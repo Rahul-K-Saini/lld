@@ -3,10 +3,9 @@ package creational;
 public class Builder {
   public static void main(String[] args) {
     FluentBuilder obj = new FluentBuilder.Builder()
-        .setName("rowl")
-        .build();
+            .setName("rowl")
+            .build();
 
-    System.out.println(obj.getName());
   }
 }
 
