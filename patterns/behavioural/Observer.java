@@ -9,8 +9,9 @@ public class Observer {
   void main() {
     MyEventManager eventManager = new MyEventManager();
 
-    EventType<String> MEET = new EventType<>("meet");
-    EventType<Integer> SCORE = new EventType<>("score");
+    EventType<String> MEET = new EventType<>("meet", String.class);
+    EventType<Integer> SCORE = new EventType<>("score", Integer.class);
+    EventType<Integer> ANOTHER_MEET = new EventType<>("meet", Integer.class);
 
     ListenerA listenerA = new ListenerA();
     ListenerB listenerB = new ListenerB();
@@ -21,10 +22,12 @@ public class Observer {
     eventManager.notify(SCORE, 100);
     eventManager.unsubscribe(MEET, listenerA);
     eventManager.notify(MEET, "Another meetup");
+    eventManager.subscribe(ANOTHER_MEET, new ListenerB());
+    eventManager.notify(ANOTHER_MEET, 200);
   }
 }
 
-record EventType<T>(String name) {}
+record EventType<T>(String name, Class<T> dataType) {}
 
 interface MyEventListener<T> {
   void doAction(T someKindOfData);
@@ -42,7 +45,6 @@ class MyEventManager {
           EventType<T> eventType,
           MyEventListener<T> listener
   ) {
-
     eventToListenerMap
             .computeIfAbsent(eventType, key -> new CopyOnWriteArrayList<>())
             .add(listener);
@@ -92,7 +94,6 @@ class MyEventManager {
 
 
 class ListenerA implements MyEventListener<String> {
-
   @Override
   public void doAction(String someKindOfData) {
     System.out.println(
@@ -103,7 +104,6 @@ class ListenerA implements MyEventListener<String> {
 
 
 class ListenerB implements MyEventListener<Integer> {
-
   @Override
   public void doAction(Integer someKindOfData) {
     System.out.println(
