@@ -6,7 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Observer {
 
-  void main(String[] args) {
+  void main() {
     MyEventManager eventManager = new MyEventManager();
 
     EventType<String> MEET = new EventType<>("meet");
